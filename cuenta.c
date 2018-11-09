@@ -89,7 +89,7 @@ void cargarDatos(int* num)
 	}
 	fin = time(0);
 	
-	duracion = (fin - inicio);
+	duracion = (fin-inicio);
 	
 	num[0]=contar1;
 	num[1]=contar2;
@@ -97,7 +97,7 @@ void cargarDatos(int* num)
 	num[3]=contar4;
 	num[4]=contar5;
 	fclose(dat);
-	printf("%li\n" , duracion);
+	printf("%ld\n" , duracion);
 }
 
 void exportarDatos(int* numeros)
