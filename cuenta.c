@@ -5,27 +5,28 @@
 
 #define N 5
 
-void cargarDatos(int* numeros);
+void cargarDatos(int* numeros, char* nombre);
 void exportarDatos(int* numeros);
 
-int main ()
-{	
-	int* numeros;
+int main (int argc, char **nombre)
+{
+	char* prueba = nombre[1];
+    int* numeros;
 	numeros= malloc(N*sizeof(int));
-	cargarDatos(numeros);
+	cargarDatos(numeros, nombre[1]);
 	exportarDatos(numeros);
 	return 0;
 }
 
-void cargarDatos(int* num)
+void cargarDatos(int* num, char* nombre)
 {
 	FILE *dat;
-	dat= fopen("archivo.txt", "r");
+	dat= fopen(nombre, "r");
 	time_t inicio, fin, duracion;
 	
 	if (!dat)
 	{
-		printf("Problemas abriendo el archivos %s\n", "archivo.txt" );
+		printf("Problemas abriendo el archivos %s\n", nombre);
 		exit(1);
 	}
 	
