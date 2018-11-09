@@ -97,7 +97,19 @@ void cargarDatos(int* num)
 	num[3]=contar4;
 	num[4]=contar5;
 	fclose(dat);
-	printf("%ld\n" , duracion);
+	
+	FILE *arch;
+	arch= fopen("tiempo.txt", "w");
+	if (!arch)
+	{
+		printf("Problemas abriendo el archivos %s\n", "tiempo.txt" );
+		exit(1);
+	}
+
+
+	fprintf(arch, "%li\n", duracion);
+
+	fclose(arch);
 }
 
 void exportarDatos(int* numeros)
@@ -107,7 +119,7 @@ void exportarDatos(int* numeros)
 	arch= fopen("cuenta.txt", "w");
 	if (!arch)
 	{
-		printf("Problemas abriendo el archivos %s\n", "sample.dat" );
+		printf("Problemas abriendo el archivos %s\n", "cuenta.txt" );
 		exit(1);
 	}
 	int i;
